@@ -6,7 +6,7 @@ node {
         
         stage('Test') { 
   
-                sh 'mvn test''
+                sh 'mvn test'
                 junit 'target/surefire-reports/*.xml' 
   
         }
