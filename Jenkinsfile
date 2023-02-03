@@ -38,8 +38,8 @@ node {
 //                 sh './jenkins/scripts/kill.sh'
    
         }    
-    
-    stage('Deliver') { 
+    withDockerContainer('maven:3.8.7-eclipse-temurin-11'){
+    stage('Deploy') { 
          
                 sh './jenkins/scripts/deliver.sh'
                 echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
@@ -47,4 +47,5 @@ node {
                 echo 'pipeline success'
    
         }
+    }
 }
