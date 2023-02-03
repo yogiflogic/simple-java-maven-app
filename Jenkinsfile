@@ -42,8 +42,6 @@ node {
     stage('Deploy') { 
          
                 sh './jenkins/scripts/deliver.sh'
-                env.SMBuildDescription="Build path:"+"${buildpath}"
-                currentBuild.description=SMBuildDescription
                 echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
                 sleep 60 // seconds
                 echo 'pipeline success'
