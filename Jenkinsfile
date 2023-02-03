@@ -31,5 +31,19 @@ node {
             junit 'target/surefire-reports/*.xml'
         }
     }
+    
+    stage('Manual Approval') { 
+         
+                input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
+                sh './jenkins/scripts/kill.sh'
    
-}
+        }    
+    
+    stage('Deliver') { 
+         
+                sh './jenkins/scripts/deliver.sh'
+                echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
+                sleep 60 // seconds
+                echo 'pipeline success'
+   
+        }
