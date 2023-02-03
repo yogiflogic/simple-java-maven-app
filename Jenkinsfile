@@ -35,7 +35,7 @@ node {
     stage('Manual Approval') { 
          
                 input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
-                sh './jenkins/scripts/kill.sh'
+//                 sh './jenkins/scripts/kill.sh'
    
         }    
     
