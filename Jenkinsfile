@@ -48,4 +48,9 @@ node {
    
         }
     }
+    
+        stage('print') {
+            env.SMBuildDescription="Build path:"+"${buildpath}"
+            currentBuild.description=SMBuildDescription
+        }
 }
