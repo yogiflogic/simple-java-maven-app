@@ -49,4 +49,12 @@ node {
         }
     }
     
+         withDockerContainer('ubuntu') {
+        // some block
+        stage('TestCLI') {
+            checkout scm
+            sh 'apt update' 
+        }
+    }
+    
 }
