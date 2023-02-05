@@ -49,12 +49,11 @@ node {
         }
     }
     
-         withDockerContainer('ubuntu') {
         // some block
         stage('TestCLI') {
-            checkout scm
-            sh 'docker images' 
+                
+            sh 'pwd' 
         }
-    }
+    
     
 }
