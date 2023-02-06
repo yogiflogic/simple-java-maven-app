@@ -50,10 +50,10 @@ node {
 
                 }
     }
-        stage ("Deploy To SRV2 AWS EC2") {
+        stage ("Build Images & Deploy To SRV2 AWS EC2") {
                 
                 sh 'docker ps -a'
-                sh 'docker build -t myjenkins-blueocean:2.375.2-1 .'
+                sh 'docker build -t my-app-java-yogif-logic:1.0 .'
                 sh 'docker images'
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
