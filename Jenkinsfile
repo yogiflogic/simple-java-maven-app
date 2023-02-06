@@ -44,8 +44,8 @@ node {
             stage('Deploy') { 
 
                         sh './jenkins/scripts/deliver.sh'
+//                         sleep 60 // seconds
                         echo 'Running App Done'
-                        sleep 60 // seconds
                         echo 'pipeline success'
 
                 }
