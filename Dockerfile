@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM alpine:3
 RUN mkdir javamvn
 COPY target/my-app-1.0-SNAPSHOT.jar /javamvn
 RUN java -jar javamvn/my-app-1.0-SNAPSHOT.jar
