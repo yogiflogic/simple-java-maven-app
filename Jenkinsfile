@@ -50,7 +50,7 @@ node {
 
                 }
     }
-        stage ("SCP") {
+        stage ("Deploy To SRV2 AWS EC2") {
                 
                 sh 'docker ps -a'
                 sh 'docker build -t myjenkins-blueocean:2.375.2-1 .'
