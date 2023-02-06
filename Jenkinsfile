@@ -52,6 +52,12 @@ node {
    
         }
     }
+        stage ("SCP") {
+
+                sh 'docker ps -a'
+                sh 'scp target/* root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
+
+        }
     
         // some block
         stage('TestCLI') {
