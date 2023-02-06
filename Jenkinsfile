@@ -38,17 +38,18 @@ node {
                 input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
 //                 sh './jenkins/scripts/kill.sh'
    
-        }    
-    
-    stage('Deploy') { 
-         
-                sh './jenkins/scripts/deliver.sh'
-                echo 'Deploy Done'
-                sleep 60 // seconds
-                echo 'pipeline success'
-   
-        }
-    
+        }  
+        
+    withDockerContainer('maven:3.8.7-eclipse-temurin-11') {
+            stage('Deploy') { 
+
+                        sh './jenkins/scripts/deliver.sh'
+                        echo 'Deploy Done'
+                        sleep 60 // seconds
+                        echo 'pipeline success'
+
+                }
+    }
         stage ("SCP") {
 
                 sh 'docker ps -a'
