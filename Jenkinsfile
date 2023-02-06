@@ -25,6 +25,7 @@ node {
             sh 'mvn -B -DskipTests clean package'
         }
     }
+        
     withDockerContainer('maven') {
         // some block
         stage('Test') {
@@ -36,8 +37,7 @@ node {
     
     stage('Manual Approval') { 
          
-                input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
-
+           input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
    
         }  
         
