@@ -53,8 +53,11 @@ node {
         stage ("Build Images & Deploy To SRV2 AWS EC2") {
                 
                 sh 'docker ps -a'
-                sh 'docker build -t my-app-java-yogif-logic:1.0 .'
+                sh 'docker build -t yogiflogic/javamvn .'
                 sh 'docker images'
+                sh 'docker container create --name javamvn yogiflogic/javamvn'
+                sh 'docker container start javamvn'
+                sh 'docker container logs javmvn'
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
                 
