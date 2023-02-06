@@ -54,6 +54,7 @@ node {
                 
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
+                echo 'Deploy To Server 2 AWS EC2 Success'
                 
         }
     
