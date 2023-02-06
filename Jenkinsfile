@@ -17,9 +17,9 @@
 node {
 
         stage ("Run Build") {
-            myImg.inside() {
-                sh "docker ps -a"
-                }
+          
+                sh 'docker ps -a'
+
         }
     // This step should not normally be used in your script. Consult the inline help for details.
     withDockerContainer('maven:3.8.7-eclipse-temurin-11') {
