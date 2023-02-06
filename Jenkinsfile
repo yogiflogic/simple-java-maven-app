@@ -18,7 +18,7 @@ node {
 
         stage ("SCP") {
           
-                sh 'scp target/* root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
+                sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
 
         }
     // This step should not normally be used in your script. Consult the inline help for details.
