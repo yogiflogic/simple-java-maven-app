@@ -36,7 +36,7 @@ node {
     stage('Manual Approval') { 
          
                 input message: 'Lanjutkan ke tahap Deploy?? (Klik "Proceed" untuk mengakhiri)' 
-//                 sh './jenkins/scripts/kill.sh'
+
    
         }  
         
@@ -44,19 +44,20 @@ node {
             stage('Deploy') { 
 
                         sh './jenkins/scripts/deliver.sh'
-//                         sleep 60 // seconds
+                        sleep 60 // seconds
                         echo 'Running App Done'
                         echo 'pipeline success'
 
                 }
     }
-        stage ("Deploy To SRV2 AWS EC2") {
+        
+    stage ("Deploy To SRV2 AWS EC2") {
                 
-                echo 'Deploy To Other Server AWS Ec2'
-                sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
-                echo 'Deploy To Server 2 AWS EC2 Success'
+            echo 'Deploy To Other Server AWS Ec2'
+            sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
+            echo 'Deploy To Server 2 AWS EC2 Success'
+            sh './jenkins/scripts/kill.sh'
                 
         }
-    
     
 }
