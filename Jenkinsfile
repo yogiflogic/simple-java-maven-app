@@ -44,7 +44,7 @@ node {
             stage('Deploy') { 
 
                         sh './jenkins/scripts/deliver.sh'
-                        echo 'Deploy Done'
+                        echo 'Running App Done'
                         sleep 60 // seconds
                         echo 'pipeline success'
 
@@ -57,8 +57,6 @@ node {
                 sh 'docker images'
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
-                sh 'deploy to aws ec2 done'
-//                 echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
                 
         }
     
