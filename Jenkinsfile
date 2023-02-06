@@ -15,6 +15,21 @@
 
 // another way
 node {
+        
+     def myImg
+        stage ("Build image") {
+            // download the dockerfile to build from
+            git 'git@diyvb:repos/dockerResources.git'
+
+            // build our docker image
+            myImg = docker.build 'my-image:snapshot'
+        }
+        
+        stage ("Run Build") {
+            myImg.inside() {
+                sh "docker ps -a"
+                }
+        }
     // This step should not normally be used in your script. Consult the inline help for details.
     withDockerContainer('maven:3.8.7-eclipse-temurin-11') {
         // some block
