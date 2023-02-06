@@ -17,7 +17,6 @@
 node {
 
         stage ("Run Build") {
-            myImg = docker.build 'my-image:snapshot'
             myImg.inside() {
                 sh "docker ps -a"
                 }
