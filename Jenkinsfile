@@ -54,14 +54,8 @@ node {
                 sh 'docker ps -a'
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
-                echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
+//                 echo 'Waiting 5 minutes for deployment to complete prior starting smoke testing'
 
-        }
-    
-        // some block
-        stage('TestCLI') {
-                
-            sh 'pwd' 
         }
     
     
