@@ -1,7 +1,6 @@
-FROM alpine:3
 FROM openjdk:11
 RUN mkdir javamvn
 COPY target/my-app-1.0-SNAPSHOT.jar /javamvn
-RUN java javamvn/my-app-1.0-SNAPSHOT.jar
+RUN java -jdk javamvn/my-app-1.0-SNAPSHOT.jar
 CMD ["java", "-jdk"]
 
