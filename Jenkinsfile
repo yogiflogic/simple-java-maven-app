@@ -15,17 +15,9 @@
 
 // another way
 node {
-        
-     def myImg
-        stage ("Build image") {
-            // download the dockerfile to build from
-            git 'git@diyvb:repos/dockerResources.git'
 
-            // build our docker image
-            myImg = docker.build 'my-image:snapshot'
-        }
-        
         stage ("Run Build") {
+            myImg = docker.build 'my-image:snapshot'
             myImg.inside() {
                 sh "docker ps -a"
                 }
