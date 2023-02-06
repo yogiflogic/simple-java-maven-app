@@ -39,7 +39,7 @@ node {
 //                 sh './jenkins/scripts/kill.sh'
    
         }    
-    withDockerContainer('maven:3.8.7-eclipse-temurin-11'){
+    
     stage('Deploy') { 
          
                 sh './jenkins/scripts/deliver.sh'
@@ -48,7 +48,7 @@ node {
                 echo 'pipeline success'
    
         }
-    }
+    
         stage ("SCP") {
 
                 sh 'docker ps -a'
