@@ -57,7 +57,6 @@ node {
                 sh 'docker images'
                 sh 'docker container create --name javamvn yogiflogic/javamvn'
                 sh 'docker container start javamvn'
-                sh 'docker container logs javamvn'
                 echo 'Deploy To Other Server AWS Ec2'
                 sh 'scp target/my-app-1.0-SNAPSHOT.jar root@ec2-13-213-4-71.ap-southeast-1.compute.amazonaws.com:/var/www/html'
                 
